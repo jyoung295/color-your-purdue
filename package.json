@@ -1,0 +1,19 @@
+{
+  "name": "color-your-purdue",
+  "version": "1.0.0",
+  "description": "Twitter bot that will tweet a color swatch created form the daily Picture your Purdue image on purdue.edu, the Purdue University Homepage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jyoung295/color-your-purdue.git"
+  },
+  "author": "Jesse Young",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jyoung295/color-your-purdue/issues"
+  },
+  "homepage": "https://github.com/jyoung295/color-your-purdue#readme"
+}
