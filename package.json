@@ -4,7 +4,7 @@
   "description": "Twitter bot that will tweet a color swatch created form the daily Picture your Purdue image on purdue.edu, the Purdue University Homepage.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --experimental-modules index.mjs"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/jyoung295/color-your-purdue/issues"
   },
-  "homepage": "https://github.com/jyoung295/color-your-purdue#readme"
+  "homepage": "https://github.com/jyoung295/color-your-purdue#readme",
+  "dependencies": {
+    "canvas": "^2.5.0",
+    "firebase": "^6.2.4",
+    "twit": "^2.2.11"
+  }
 }
