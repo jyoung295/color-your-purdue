@@ -1,3 +1,4 @@
 twitter-config.js
 firebase-config.js
 node_modules
+.DS_STORE

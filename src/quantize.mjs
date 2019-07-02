@@ -51,7 +51,7 @@ const getImage = async () => {
 
   context.drawImage(image, 0, 0)
   const imgData = context.getImageData(0, 0, 1920, 946)
-  return imgData.data
+  return {imgData: imgData.data, photo: image}
 }
 
 // pull the image data array from the photo
@@ -76,11 +76,11 @@ const getPixelArray = async rgbArray => {
 
 // returns the swatch array
 export const quantize = async () => {
-  const rgbArray = await getImage()
-  const pixelArray = await getPixelArray(rgbArray)
+  const {imgData, photo} = await getImage()
+  const pixelArray = await getPixelArray(imgData)
 
   const swatch = buildSwatchRecursive(pixelArray, 0, 3)
-  return swatch
+  return {swatch, photo}
 }
 
 const buildSwatchRecursive = (pixelArray, currDepth, maxDepth) => {
