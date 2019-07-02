@@ -1,7 +1,6 @@
 import { quantize } from './src/quantize.mjs'
 import { createSwatch } from './src/createSwatch.mjs'
 import { tweet } from './src/tweet.mjs'
-import fs from 'fs'
 
 const run = async () => {
   const { swatch, photo, name } = await quantize()
@@ -12,11 +11,6 @@ const run = async () => {
 
   const tweetObj = { media: swatch64, name }
   tweet(tweetObj)
-
-  // ---- for testing -----
-  // fs.writeFileSync('swatch.jpg', swatchImage)
-  // console.log('done')
-  // ----------------------
 }
 
 run()

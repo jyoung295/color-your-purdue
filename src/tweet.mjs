@@ -4,10 +4,6 @@ import twitConfig from '../twitter-config'
 export const tweet = ({ media, name }) => {
   const tweeter = new Twit(twitConfig)
 
-  // tweeter.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-  //   console.log(response)
-  // })
-
   tweeter.post('media/upload', { media_data: media }, (err, data, response) => {
     if (err) console.log('Media upload Error: ', err)
     const mediaIdStr = data.media_id_string
