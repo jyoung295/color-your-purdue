@@ -12,7 +12,6 @@ export const createSwatch = (rawSwatch, photo) => {
     if (counter < half) {
       ctx.fillRect(counter * 240, 473, 240, 245)
     } else {
-      console.log('second half')
       ctx.fillRect((counter - 4) * 240, 718, 240, 245)
     }
     counter++

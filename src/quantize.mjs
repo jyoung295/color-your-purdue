@@ -44,6 +44,7 @@ const getImage = async () => {
   // get data for current day
   const currentDayIndex = Object.keys(schedule).find(key => schedule[key].date === date && schedule[key].month === month)
   const todaysPhotoUrl = schedule[currentDayIndex].submission.edited
+  const submitterName = schedule[currentDayIndex].submission.name
 
   const image = await Canvas.loadImage(todaysPhotoUrl)
   const canvas = Canvas.createCanvas(1920, 946)
@@ -51,7 +52,7 @@ const getImage = async () => {
 
   context.drawImage(image, 0, 0)
   const imgData = context.getImageData(0, 0, 1920, 946)
-  return {imgData: imgData.data, photo: image}
+  return { imgData: imgData.data, photo: image, name: submitterName }
 }
 
 // pull the image data array from the photo
@@ -76,11 +77,11 @@ const getPixelArray = async rgbArray => {
 
 // returns the swatch array
 export const quantize = async () => {
-  const {imgData, photo} = await getImage()
+  const { imgData, photo, name } = await getImage()
   const pixelArray = await getPixelArray(imgData)
 
   const swatch = buildSwatchRecursive(pixelArray, 0, 3)
-  return {swatch, photo}
+  return { swatch, photo, name }
 }
 
 const buildSwatchRecursive = (pixelArray, currDepth, maxDepth) => {
