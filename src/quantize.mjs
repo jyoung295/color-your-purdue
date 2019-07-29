@@ -81,6 +81,12 @@ export const quantize = async () => {
   const pixelArray = await getPixelArray(imgData)
 
   const swatch = buildSwatchRecursive(pixelArray, 0, 3)
+
+  // sort swatch by largest range
+  const sortColor = findLargeRange(swatch)
+  swatch.sort((color1, color2) => {
+    return color1[sortColor] - color2[sortColor]
+  })
   return { swatch, photo, name }
 }
 
